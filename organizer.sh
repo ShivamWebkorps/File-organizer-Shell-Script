@@ -1,16 +1,22 @@
 #!/bin/bash
 
-mkdir -p Images
-mkdir -p Documents
-mkdir -p Videos
+shopt -s nullglob
 
-echo "Folders created!"
-#!/bin/bash
+mkdir -p Images Documents Videos
 
-mkdir -p Images
-mkdir -p Documents
-mkdir -p Videos
+for file in *.jpg *.png
+do
+    mv "$file" Images/
+done
 
-mv *.jpg Images/
+for file in *.pdf *.txt
+do
+    mv "$file" Documents/
+done
 
-echo "Done!"
+for file in *.mp4
+do
+    mv "$file" Videos/
+done
+
+echo "Files organized!"
